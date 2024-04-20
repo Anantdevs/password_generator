@@ -12,10 +12,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String url = (Platform.isAndroid || Platform.isIOS)
+  String url = Platform.isAndroid
       ? 'http://10.0.2.2:5000/generate_password'
       : 'http://127.0.0.1:5000/generate_password';
-  String strength_url = 'http://10.0.2.2:5000/check_password?query=';
+  String strength_url = Platform.isAndroid
+      ? 'http://10.0.2.2:5000/check_password?query='
+      : 'http://127.0.0.1:5000/check_password?query=';
   var data;
   var output = '';
   var copy_item = '';
